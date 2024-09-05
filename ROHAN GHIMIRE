@@ -1,0 +1,30 @@
+class Account:
+    def __init__(self, platform, username,password, phone_number, email):
+        self.platform = platform
+        self.username = username
+        self.password = password 
+        self.phone_number = phone_number
+        self.email = email
+    def get_info(self):
+        # Exclude password for security
+        return f"Platform: {self.platform}\nUsername: {self.username}\nPhone Number: {self.phone_number}\nEmail: {self.email}\n password: {self.password}"
+
+
+def main():
+    user_input = input("Which account information do you want to print? (Facebook, Instagram, LinkedIn): ").lower()
+
+    accounts = {
+        "facebook": Account("Facebook", "Your name", "password","number", "email", ),
+        "instagram": Account("Instagram", "Your name","password","number", "" ),
+        "linkedin": Account("LinkedIn", "Your name","password", "number", "email"),
+    }
+
+    if user_input in accounts:
+        account = accounts[user_input]
+        print(account.get_info())
+    else:
+        print("Invalid account name. Please choose Facebook, Instagram, or LinkedIn.")
+
+
+if __name__ == "__main__":
+    main()
